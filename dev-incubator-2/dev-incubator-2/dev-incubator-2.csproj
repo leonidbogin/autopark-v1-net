@@ -45,7 +45,8 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="VehicleType.cs" />
+    <Compile Include="Vehicle.cs" />
+    <Compile Include="YearsOperation.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
