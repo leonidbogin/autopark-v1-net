@@ -25,7 +25,7 @@ namespace dev_incubator_2
 
         public double GetTotalCosts() => averageCostKilometer * averageKilometers;
 
-        public override string ToString() => "{name},{averageCostKilometer},{averageKilometers},{endOperation}";
+        public override string ToString() => "${name},{averageCostKilometer},{averageKilometers},{endOperation}";
 
         public int CompareTo(object obj) 
         {
