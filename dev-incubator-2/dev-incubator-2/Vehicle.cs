@@ -11,21 +11,21 @@ namespace dev_incubator_2
         public string name { get; set; }
         public double averageCost { get; set; }                 //BYN (cost - 1 km)
         public double averageKilometers { get; set; }           //Km (kilometers - 1 month)
-        public YearsOperation startOperation { get; set; }      //Year (from enum)
+        public YearsOperation endOperation { get; set; }      //Year (from enum)
 
         public Vehicle() { }
 
-        public Vehicle(string name, double averageCost, double averageKilometers, YearsOperation startOperation) 
+        public Vehicle(string name, double averageCost, double averageKilometers, YearsOperation endOperation) 
         {
             this.name = name;
             this.averageCost = averageCost;
             this.averageKilometers = averageKilometers;
-            this.startOperation = startOperation;
+            this.endOperation = endOperation;
         }
 
         public double GetTotalCosts() => averageCost * averageKilometers;
 
-        public override string ToString() => "{name},{averageCost},{averageKilometers},{startOperation}";
+        public override string ToString() => "{name},{averageCost},{averageKilometers},{endOperation}";
 
         public int CompareTo(object obj) 
         {
