@@ -35,5 +35,20 @@ namespace dev_incubator_2
             else if (GetTotalCosts() > v.GetTotalCosts()) return 1;
             else return 0;
         }
+
+        public bool Equals(Vehicle second)
+        {
+            try 
+            {
+                if (name.Equals(second.name) && averageCostKilometer.Equals(second.averageCostKilometer))
+                    return true;
+                else
+                    return false;
+            }
+            catch
+            {
+                return false;
+            }
+        }
     }
 }
