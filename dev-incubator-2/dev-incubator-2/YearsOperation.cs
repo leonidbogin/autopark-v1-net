@@ -8,6 +8,7 @@ namespace dev_incubator_2
 {
     public enum YearsOperation
     {
+        Operation,
         Y2010,
         Y2011,
         Y2012,
