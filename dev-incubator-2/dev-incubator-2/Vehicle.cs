@@ -23,7 +23,7 @@ namespace dev_incubator_2
             this.endOperation = endOperation;
         }
 
-        public double GetTotalCosts() => averageCostKilometer * averageKilometers;
+        public virtual double GetTotalCosts() => averageCostKilometer * averageKilometers;
 
         public override string ToString() => $"{name};{averageCostKilometer};{averageKilometers};{endOperation}"
                                 .Replace(',', '.').Replace(';', ','); //Fix replacing ',' in numbers with '.'
@@ -36,19 +36,27 @@ namespace dev_incubator_2
             else return 0;
         }
 
-        public bool Equals(Vehicle second)
+        public override bool Equals(object obj)
         {
             try 
             {
-                if (name.Equals(second.name) && averageCostKilometer.Equals(second.averageCostKilometer))
+                Vehicle second = (Vehicle)obj;
+                if (second != null && name.Equals(second.name)
+                    && averageCostKilometer.Equals(second.averageCostKilometer))
+                {
                     return true;
-                else
-                    return false;
+                }
+                else return false;
             }
             catch
             {
                 return false;
             }
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
         }
     }
 }
