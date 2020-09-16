@@ -9,9 +9,9 @@ namespace dev_incubator_2
     public class Vehicle : IComparable
     {
         public string name { get; set; }
-        public double averageCostKilometer { get; set; }                 //BYN (cost - 1 km)
+        public double averageCostKilometer { get; set; }        //BYN (cost - 1 km)
         public double averageKilometers { get; set; }           //Km (kilometers - 1 month)
-        public YearsOperation endOperation { get; set; }      //Year (from enum)
+        public YearsOperation endOperation { get; set; }        //Year (from enum)
 
         public Vehicle() { }
 
