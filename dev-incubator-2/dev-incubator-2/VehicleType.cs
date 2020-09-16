@@ -34,6 +34,7 @@ namespace dev_incubator_2
             Console.WriteLine($"Total = {GetTotal()};");
         }
 
-        public override string ToString() => $"{typeName},{averagePrice},{costGarage},{count},{GetTotal()}";
+        public override string ToString() => 
+            $"{typeName},{averagePrice},{costGarage},{count},{GetTotal()}";
     }
 }

@@ -6,19 +6,18 @@ using System.Threading.Tasks;
 
 namespace dev_incubator_2
 {
-    public class VehicleSurcharge : Vehicle
+    public class VehicleSurcharge : AbstractVehicle
     {
+        const double surcharge = 0.5;
+
         public VehicleSurcharge() { }
 
-        public VehicleSurcharge(string name, double averageCostKilometer, double averageKilometers, YearsOperation endOperation)
+        public VehicleSurcharge(string name, double averageCostKilometer, double averageKilometers)
         {
-            this.name = name;
-            this.averageCostKilometer = averageCostKilometer;
+            this.vehicleCosts = new VehicleCosts(name, averageCostKilometer); ;
             this.averageKilometers = averageKilometers;
-            this.endOperation = endOperation;
         }
 
-        const double surcharge = 0.5;
-        public override double GetTotalCosts() => (averageCostKilometer + surcharge) * averageKilometers;
+        public override double GetTotalCosts() => (vehicleCosts.averageCostKilometer + surcharge) * averageKilometers;
     }
 }

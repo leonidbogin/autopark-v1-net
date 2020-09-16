@@ -6,39 +6,32 @@ using System.Threading.Tasks;
 
 namespace dev_incubator_2
 {
-    public class VehicleOld : Vehicle
+    public class VehicleOld : AbstractVehicle
     { 
-        const double surchargeOld = 1.1;
-        const int startOld = 5;
+        readonly int age;
+        const int startOldAge = 5;
+        const double surchargeOld = 0.6d;
 
-        public YearsOperation startOperation { get; set; }
+        public YearsOperation endOperation { get; set; }
         public VehicleOld() { }
 
-        public VehicleOld(string name, double averageCostKilometer, double averageKilometers, YearsOperation startOperation, YearsOperation endOperation)
+        public VehicleOld(string name, double averageCostKilometer, double averageKilometers, YearsOperation endOperation, int age)
         {
-            this.name = name;
-            this.averageCostKilometer = averageCostKilometer;
+            vehicleCosts = new VehicleCosts(name, averageCostKilometer);
             this.averageKilometers = averageKilometers;
-            this.startOperation = startOperation;
             this.endOperation = endOperation;
+            this.age = age;
         }       
 
         public override double GetTotalCosts() 
         {
             double surcharge = 0;
-            int end = 0;
-            if (endOperation != YearsOperation.Operation)
-                end = (int)endOperation;
-            else end = 2020;
-            if (end - (int)startOperation < -1
-                || end - (int)startOperation > startOld)
-            {
-                surcharge = surchargeOld;
-            }
-            return (averageCostKilometer + surcharge) * averageKilometers;
+            if (age > startOldAge) surcharge = surchargeOld;
+            return (vehicleCosts.averageCostKilometer + surcharge) * averageKilometers;
         }
 
-        public override string ToString() => $"{name};{averageCostKilometer};{averageKilometers};{startOperation};{endOperation}"
-                                .Replace(',', '.').Replace(';', ','); //Fix replacing ',' in numbers with '.'
+        public override string ToString() => 
+            $"{vehicleCosts.name};{vehicleCosts.averageCostKilometer};{averageKilometers};{endOperation};{age}"
+            .Replace(',', '.').Replace(';', ','); //Fix replacing ',' in numbers with '.'
     }
 }

@@ -31,28 +31,5 @@ namespace dev_incubator_2
             else if (GetTotalCosts() > second.GetTotalCosts()) return 1;
             else return 0;
         }
-
-        //public override bool Equals(object obj)
-        //{
-        //    try 
-        //    {
-        //        AbstractVehicle second = (AbstractVehicle)obj;
-        //        if (second != null && vehicleCosts.name.Equals(second.vehicleCosts.name)
-        //            && vehicleCosts.averageCostKilometer.Equals(second.vehicleCosts.averageCostKilometer))
-        //        {
-        //            return true;
-        //        }
-        //        else return false;
-        //    }
-        //    catch
-        //    {
-        //        return false;
-        //    }
-        //}
-
-        //public override int GetHashCode()
-        //{
-        //    return base.GetHashCode();
-        //}
     }
 }
