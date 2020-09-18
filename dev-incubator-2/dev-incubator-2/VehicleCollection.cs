@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -15,7 +16,12 @@ namespace dev_incubator_2
         public VehicleCollection() { }
 
         public VehicleCollection(string inFile) 
-        { 
+        {
+            AddFromFile(inFile);
+        }
+
+        public void AddFromFile(string inFile)
+        {
             try
             {
                 StreamReader sr = new StreamReader(inFile + ".csv");
@@ -35,11 +41,15 @@ namespace dev_incubator_2
         {
             string[] split = csvString.Split(',','\n');
             decimal surchargeKilometer = 0;
-
-            if (split.Length > 3) surchargeKilometer = decimal.Parse(split[3]);
-
-            return new VehicleSurcharge(split[0], decimal.Parse(split[1]), decimal.Parse(split[2]), surchargeKilometer);
+            if (split.Length > 3) surchargeKilometer = ParseDecimal(split[3]);
+            return new VehicleSurcharge(split[0], ParseDecimal(split[1]), ParseDecimal(split[2]), surchargeKilometer);
         }
+
+        private static decimal ParseDecimal(string s)
+        {
+            return decimal.Parse(s, CultureInfo.InvariantCulture);
+        }
+
 
         public void Insert(int index, AbstractVehicle vehicle)
         {

@@ -14,42 +14,37 @@ namespace dev_incubator_2
         static void Main(string[] args)
         {
 
-            VehicleCollection vehicleCollection = new VehicleCollection(args[0]);
+            VehicleCollection vehicleCollection = new VehicleCollection();
+            for (int i = 0; i < args.Length; i++)
+            {
+                vehicleCollection.AddFromFile(args[i]);
+            }
 
             Console.WriteLine("Аfter creation:");
             vehicleCollection.Print();
 
-            VehicleCollection vehicleCollectionSecond = new VehicleCollection(args[1]);
-            vehicleCollection.Insert(1, vehicleCollectionSecond.vehicles.Last());
-            vehicleCollection.Insert(150, vehicleCollectionSecond.vehicles[1]);
-            vehicleCollection.Insert(3, vehicleCollectionSecond.vehicles[3]);
-            vehicleCollection.Delete(2);
-            vehicleCollection.Delete(8);
-            vehicleCollection.Delete(-1);
+            //VehicleCollection vehicleCollectionSecond = new VehicleCollection(args[1]);
+            //vehicleCollection.Insert(1, vehicleCollectionSecond.vehicles.Last());
+            //vehicleCollection.Insert(150, vehicleCollectionSecond.vehicles[1]);
+            //vehicleCollection.Insert(3, vehicleCollectionSecond.vehicles[3]);
+            //vehicleCollection.Delete(2);
+            //vehicleCollection.Delete(8);
+            //vehicleCollection.Delete(-1);
 
-            Console.WriteLine("Before sorting:");
-            vehicleCollection.Print();
+            //Console.WriteLine("Before sorting:");
+            //vehicleCollection.Print();
 
-            IComparer<AbstractVehicle> comparer = new VehicleComparer();
-            vehicleCollection.Sort(comparer);
+            //IComparer<AbstractVehicle> comparer = new VehicleComparer();
+            //vehicleCollection.Sort(comparer);
 
-            Console.WriteLine("After sorting:");
-            vehicleCollection.Print();
+            //Console.WriteLine("After sorting:");
+            //vehicleCollection.Print();
 
-            Console.WriteLine("Searching results:");
-            Search(vehicleCollection, vehicleCollectionSecond, 1);
-            Search(vehicleCollection, vehicleCollectionSecond, 2);
+            //Console.WriteLine("Searching results:");
+            //Search(vehicleCollection, vehicleCollectionSecond, 1);
+            //Search(vehicleCollection, vehicleCollectionSecond, 2);
 
             Console.ReadLine();
-        }
-
-        private static void Search(VehicleCollection collection1, VehicleCollection collection2, int secondIndex)
-        {
-            int firstIndex = collection1.vehicles.BinarySearch(collection2.vehicles[secondIndex]);
-            if (firstIndex > -1) 
-                Console.WriteLine($"Item {collection2.vehicles[secondIndex].ToString()} found on position {firstIndex}");
-            else 
-                Console.WriteLine($"Item {collection2.vehicles[secondIndex].ToString()} not found");
         }
 
         private static void DisplayVehicles(AbstractVehicle[] vehicles) 
