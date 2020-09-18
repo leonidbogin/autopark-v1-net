@@ -13,7 +13,6 @@ namespace dev_incubator_2
     {
         static void Main(string[] args)
         {
-
             VehicleCollection vehicleCollection = new VehicleCollection(args[0]);
 
             Console.WriteLine("Аfter creation:");
@@ -50,12 +49,6 @@ namespace dev_incubator_2
                 Console.WriteLine($"Item {collection2.vehicles[secondIndex].ToString()} found on position {firstIndex}");
             else 
                 Console.WriteLine($"Item {collection2.vehicles[secondIndex].ToString()} not found");
-        }
-
-        private static void DisplayVehicles(AbstractVehicle[] vehicles) 
-        {
-            foreach (AbstractVehicle vehicle in vehicles)
-                Console.WriteLine(vehicle.ToString());
         }
     }
 }

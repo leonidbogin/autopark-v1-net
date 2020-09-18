@@ -45,15 +45,11 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="VehicleAdditionalTax.cs" />
     <Compile Include="VehicleCollection.cs" />
     <Compile Include="VehicleCosts.cs" />
-    <Compile Include="VehicleOld.cs" />
     <Compile Include="VehicleComparer.cs" />
     <Compile Include="VehicleSurcharge.cs" />
-    <Compile Include="VehicleType.cs" />
     <Compile Include="AbstractVehicle.cs" />
-    <Compile Include="YearsOperation.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
