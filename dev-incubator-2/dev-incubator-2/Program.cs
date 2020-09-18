@@ -20,11 +20,9 @@ namespace dev_incubator_2
             vehicles[3] = new VehicleSurcharge("Volkswagen Polo", 0.4, 400, YearsOperation.Y2020);
             vehicles[4] = new VehicleSurcharge("МАЗ 216", 2.8, 1200, YearsOperation.Operation);
             vehicles[5] = new VehicleSurcharge("МАЗ 200", 3, 1400, YearsOperation.Y2019);
-
             vehicles[6] = new VehicleOld("Volkswagen Golf 3", 0.4, 400, YearsOperation.Y2010, YearsOperation.Y2020);
             vehicles[7] = new VehicleOld("МАЗ 210", 2.8, 800, YearsOperation.Y2015, YearsOperation.Operation);
             vehicles[8] = new VehicleOld("МАЗ 205", 3, 1000, YearsOperation.Y2016, YearsOperation.Y2019);
-
 
             bool allEquals = true;
             int indexMin = 0;
