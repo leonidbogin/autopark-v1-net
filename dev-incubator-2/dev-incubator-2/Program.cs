@@ -12,9 +12,6 @@ namespace dev_incubator_2
 {
     class Program
     {
-        const int timeMinWait = 0;
-        const int timeMaxWait = 4000;
-
         static void Main(string[] args)
         {
             VehicleCollection vehicleCollection = new VehicleCollection(args[2]);
