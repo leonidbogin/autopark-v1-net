@@ -31,12 +31,5 @@ namespace dev_incubator_2
 
             Console.ReadLine();
         }
-
-
-        private static void DisplayVehicles(AbstractVehicle[] vehicles) 
-        {
-            foreach (AbstractVehicle vehicle in vehicles)
-                Console.WriteLine(vehicle.ToString());
-        }
     }
 }
