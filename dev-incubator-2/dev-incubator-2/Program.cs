@@ -12,18 +12,14 @@ namespace dev_incubator_2
         {
             const int n = 5;
 
-            Vehicle[] vehicles = new Vehicle[5];
+            Vehicle[] vehicles = new Vehicle[n];
             vehicles[0] = new Vehicle("МАЗ 5551", 4.5, 300, YearsOperation.Y2018);
             vehicles[1] = new Vehicle("МАЗ 5516", 4, 400, YearsOperation.Y2019);
             vehicles[2] = new Vehicle("Volkswagen Passat B5", 0.6, 800, YearsOperation.Operation);
             vehicles[3] = new Vehicle("Volkswagen Polo", 0.4, 400, YearsOperation.Y2020);
             vehicles[4] = new Vehicle("МАЗ 216", 2.8, 1200, YearsOperation.Operation);
 
-            foreach (Vehicle vehicle in vehicles)
-            {
-                if (vehicle != null) Console.WriteLine(vehicle.ToString());
-                else Console.WriteLine("NULL");
-            }
+            PrintVehicle(vehicles);
 
             double averageCost = 0;
             foreach (Vehicle vehicle in vehicles)
@@ -46,13 +42,17 @@ namespace dev_incubator_2
 
             Array.Sort(vehicles);
 
+            PrintVehicle(vehicles);
+            Console.ReadLine();
+        }
+
+        private static void PrintVehicle(Vehicle[] vehicles)
+        {
             foreach (Vehicle vehicle in vehicles)
             {
                 if (vehicle != null) Console.WriteLine(vehicle.ToString());
                 else Console.WriteLine("NULL");
             }
-
-            Console.ReadLine();
         }
     }
 }
