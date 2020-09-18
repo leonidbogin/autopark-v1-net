@@ -9,17 +9,17 @@ namespace dev_incubator_2
     public abstract class AbstractVehicle : IComparable<AbstractVehicle>
     {
         public VehicleCosts vehicleCosts { get; set; }
-        public double averageKilometers { get; set; }         
+        public decimal averageKilometers { get; set; }         
 
         public AbstractVehicle() { }
 
-        public AbstractVehicle(VehicleCosts vehicleCosts, double averageKilometers) 
+        public AbstractVehicle(VehicleCosts vehicleCosts, decimal averageKilometers) 
         {
             this.vehicleCosts = vehicleCosts;
             this.averageKilometers = averageKilometers;
         }
 
-        public abstract double GetTotalCosts();
+        public abstract decimal GetTotalCosts();
         //{ return averageCostKilometer * averageKilometers; }
 
         public override string ToString() => $"{vehicleCosts.name};{vehicleCosts.averageCostKilometer};{averageKilometers}"

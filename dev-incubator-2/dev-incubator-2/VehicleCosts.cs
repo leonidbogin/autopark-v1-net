@@ -9,11 +9,11 @@ namespace dev_incubator_2
     public class VehicleCosts
     {
         public string name;
-        public double averageCostKilometer;     //BYN (cost - 1 km)
+        public decimal averageCostKilometer;     //BYN (cost - 1 km)
 
         public VehicleCosts() { }
 
-        public VehicleCosts(string name, double averageCostKilometer)
+        public VehicleCosts(string name, decimal averageCostKilometer)
         {
             this.name = name;
             this.averageCostKilometer = averageCostKilometer;

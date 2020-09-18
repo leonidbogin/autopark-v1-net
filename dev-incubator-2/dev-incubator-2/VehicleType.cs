@@ -9,13 +9,13 @@ namespace dev_incubator_2
     public class VehicleType
     {
         public string typeName { get; set; }
-        public double averagePrice { get; set; }   //BYN
-        public double costGarage { get; set; }     //BYN
+        public decimal averagePrice { get; set; }   //BYN
+        public decimal costGarage { get; set; }     //BYN
         public int count { get; set; }
 
         public VehicleType() { }
 
-        public VehicleType(string typeName, double averagePrice, double costGarage, int count)
+        public VehicleType(string typeName, decimal averagePrice, decimal costGarage, int count)
         {
             this.typeName = typeName;
             this.averagePrice = averagePrice;
@@ -23,7 +23,7 @@ namespace dev_incubator_2
             this.count = count;
         }
 
-        public double GetTotal() => costGarage * count + averagePrice;
+        public decimal GetTotal() => costGarage * count + averagePrice;
 
         public void Display()
         {

@@ -8,17 +8,18 @@ namespace dev_incubator_2
 {
     public class VehicleAdditionalTax : AbstractVehicle
     {
-        const double additionalTax = 2.1d;
+        public decimal additionalTax { get; set; }
 
         public VehicleAdditionalTax() { }
 
-        public VehicleAdditionalTax(string name, double averageCostKilometer, double averageKilometers)
+        public VehicleAdditionalTax(string name, decimal averageCostKilometer, decimal averageKilometers, decimal additionalTax)
         {
             vehicleCosts = new VehicleCosts(name, averageCostKilometer);
-            this.averageKilometers = averageKilometers; 
+            this.averageKilometers = averageKilometers;
+            this.additionalTax = additionalTax;
         }
 
-        public override double GetTotalCosts() => 
+        public override decimal GetTotalCosts() => 
             vehicleCosts.averageCostKilometer * averageKilometers + additionalTax;
     }
 }
