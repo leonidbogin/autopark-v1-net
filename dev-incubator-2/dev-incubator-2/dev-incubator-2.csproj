@@ -49,7 +49,6 @@
     <Compile Include="VehicleCosts.cs" />
     <Compile Include="VehicleOld.cs" />
     <Compile Include="VehicleSurcharge.cs" />
-    <Compile Include="VehicleType.cs" />
     <Compile Include="AbstractVehicle.cs" />
     <Compile Include="YearsOperation.cs" />
   </ItemGroup>
