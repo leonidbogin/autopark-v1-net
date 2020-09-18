@@ -20,7 +20,6 @@ namespace dev_incubator_2
         }
 
         public abstract decimal GetTotalCosts();
-        //{ return averageCostKilometer * averageKilometers; }
 
         public override string ToString() => $"{vehicleCosts.name};{vehicleCosts.averageCostKilometer};{averageKilometers}"
                                 .Replace(',', '.').Replace(';', ','); //Fix replacing ',' in numbers with '.'

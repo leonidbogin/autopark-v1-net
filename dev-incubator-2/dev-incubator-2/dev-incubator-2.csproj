@@ -53,6 +53,7 @@
     <Compile Include="VehicleSurcharge.cs" />
     <Compile Include="VehicleType.cs" />
     <Compile Include="AbstractVehicle.cs" />
+    <Compile Include="WashVehicle.cs" />
     <Compile Include="YearsOperation.cs" />
   </ItemGroup>
   <ItemGroup>
