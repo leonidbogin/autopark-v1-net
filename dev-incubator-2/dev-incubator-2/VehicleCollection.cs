@@ -15,7 +15,7 @@ namespace dev_incubator_2
 
         public VehicleCollection() { }
 
-        public VehicleCollection(string inFile) 
+        public VehicleCollection(string inFile)
         {
             AddFromFile(inFile);
         }
@@ -39,7 +39,7 @@ namespace dev_incubator_2
 
         private AbstractVehicle CreateVehicle(string csvString)
         {
-            string[] split = csvString.Split(',','\n');
+            string[] split = csvString.Split(',', '\n');
             decimal surchargeKilometer = 0;
             if (split.Length > 3) surchargeKilometer = ParseDecimal(split[3]);
             return new VehicleSurcharge(split[0], ParseDecimal(split[1]), ParseDecimal(split[2]), surchargeKilometer);
@@ -53,7 +53,7 @@ namespace dev_incubator_2
 
         public void Insert(int index, AbstractVehicle vehicle)
         {
-            if (index > vehicles.Count) 
+            if (index > vehicles.Count)
                 index = vehicles.Count;
             vehicles.Insert(index, vehicle);
         }
@@ -78,7 +78,7 @@ namespace dev_incubator_2
 
         public void Print()
         {
-            Console.WriteLine(TabString("    Name","Cost ","Km/month ","Other cost ","Total "));
+            Console.WriteLine(TabString("    Name", "Cost ", "Km/month ", "Other cost ", "Total "));
             foreach (AbstractVehicle vehicle in vehicles)
             {
                 string addCost = string.Empty;
@@ -90,13 +90,13 @@ namespace dev_incubator_2
                 }
 
                 Console.WriteLine(TabString(
-                        vehicle.vehicleCosts.name, 
-                        vehicle.vehicleCosts.averageCostKilometer, 
-                        vehicle.averageKilometers, 
-                        addCost, 
+                        vehicle.vehicleCosts.name,
+                        vehicle.vehicleCosts.averageCostKilometer,
+                        vehicle.averageKilometers,
+                        addCost,
                         vehicle.GetTotalCosts()));
             }
-            Console.WriteLine(TabString("Total cost","","","",TotalCosts()));
+            Console.WriteLine(TabString("Total cost", "", "", "", TotalCosts()));
             Console.WriteLine();
         }
 
@@ -115,6 +115,6 @@ namespace dev_incubator_2
         public void Sort(IComparer<AbstractVehicle> comparator)
         {
             vehicles.Sort(comparator);
-        }   
+        }
     }
 }
