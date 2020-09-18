@@ -17,26 +17,21 @@ namespace dev_incubator_2
 
         static void Main(string[] args)
         {
-            VehicleCollection vehicleCollection = new VehicleCollection();
-            for (int i = 0; i < args.Length; i++)
-                vehicleCollection.AddFromFile(args[i]);
+            VehicleCollection vehicleCollection = new VehicleCollection(args[2]);
+            GarageStack garageStack = new GarageStack();
 
-            WashVehicle wash = new WashVehicle(vehicleCollection.vehicles.Count);
-            Random random = new Random();
-            foreach (AbstractVehicle vehicle in vehicleCollection.vehicles)
+            for (int i = 0; i < vehicleCollection.vehicles.Count; i++)
             {
-                Thread.Sleep(random.Next(timeMinWait, timeMaxWait)); //Time between new cars 
-                wash.StartWash(vehicle);
+                garageStack.Input(vehicleCollection.vehicles[i]);
+                Console.WriteLine($"Car {i}:\tdrove in garage [{vehicleCollection.vehicles[i].ToString()}]");
+            }
+            Console.WriteLine("< Garage is full >");
+            for (int i = garageStack.Count()-1; i >= 0; i--)
+            {
+                Console.WriteLine($"Car {i}:\tleft the garage [{garageStack.Output().ToString()}]");
             }
 
             Console.ReadLine();
-        }
-
-
-        private static void DisplayVehicles(AbstractVehicle[] vehicles) 
-        {
-            foreach (AbstractVehicle vehicle in vehicles)
-                Console.WriteLine(vehicle.ToString());
         }
     }
 }
