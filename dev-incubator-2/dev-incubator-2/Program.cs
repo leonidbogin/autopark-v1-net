@@ -20,31 +20,26 @@ namespace dev_incubator_2
                 vehicleCollection.AddFromFile(args[i]);
             }
 
-            Console.WriteLine("Аfter creation:");
-            vehicleCollection.Print();
-
-            //VehicleCollection vehicleCollectionSecond = new VehicleCollection(args[1]);
-            //vehicleCollection.Insert(1, vehicleCollectionSecond.vehicles.Last());
-            //vehicleCollection.Insert(150, vehicleCollectionSecond.vehicles[1]);
-            //vehicleCollection.Insert(3, vehicleCollectionSecond.vehicles[3]);
-            //vehicleCollection.Delete(2);
-            //vehicleCollection.Delete(8);
-            //vehicleCollection.Delete(-1);
-
-            //Console.WriteLine("Before sorting:");
+            //Console.WriteLine("Аfter creation:");
             //vehicleCollection.Print();
 
-            //IComparer<AbstractVehicle> comparer = new VehicleComparer();
-            //vehicleCollection.Sort(comparer);
-
-            //Console.WriteLine("After sorting:");
-            //vehicleCollection.Print();
-
-            //Console.WriteLine("Searching results:");
-            //Search(vehicleCollection, vehicleCollectionSecond, 1);
-            //Search(vehicleCollection, vehicleCollectionSecond, 2);
+            WashCars(vehicleCollection.vehicles); 
 
             Console.ReadLine();
+        }
+
+        private static void WashCars(List<AbstractVehicle> vehicles)
+        {
+            Queue<AbstractVehicle> queueWash = new Queue<AbstractVehicle>();
+
+            foreach (AbstractVehicle vehicle in vehicles)
+                queueWash.Enqueue(vehicle);
+
+            Console.WriteLine("Wash:");
+            while (queueWash.Count > 0)
+            {
+                Console.WriteLine("  Car: " + queueWash.Dequeue().ToString());
+            }
         }
 
         private static void DisplayVehicles(AbstractVehicle[] vehicles) 
