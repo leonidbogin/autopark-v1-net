@@ -14,7 +14,7 @@ namespace dev_incubator_2
     {
         static void Main(string[] args)
         {
-            VehicleCollection vehicleCollection = new VehicleCollection(args[2]);
+            VehicleCollection vehicleCollection = new VehicleCollection(args[0]);
             GarageStack garageStack = new GarageStack();
 
             for (int i = 0; i < vehicleCollection.vehicles.Count; i++)
