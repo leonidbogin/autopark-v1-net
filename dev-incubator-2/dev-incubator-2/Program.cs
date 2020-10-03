@@ -14,7 +14,6 @@ namespace dev_incubator_2
             VehicleType[] vehicles = new VehicleType[n];
             vehicles[0] = new VehicleType("Buses", 3000, 10000, 5);
             vehicles[1] = new VehicleType("Trucks", 5000, 20000, 2);
-          //vehicles[2]
             vehicles[3] = new VehicleType("Cars", 900, 1000, 10);
             vehicles[4] = new VehicleType();
 
@@ -25,10 +24,10 @@ namespace dev_incubator_2
                 Console.WriteLine();
             }
 
-            vehicles[n-1].costGarage = 5000;
+            vehicles[n-1].CostGarage = 5000;
 
             Console.WriteLine($"NumOfVehicles[{n-2}] + NumOfVehicles[{n - 1}] = " 
-                                + (vehicles[n-2].count + vehicles[n-1].count).ToString() + "\n");
+                                + (vehicles[n-2].Count + vehicles[n-1].Count).ToString() + "\n");
 
             foreach (VehicleType vehicle in vehicles)
             {

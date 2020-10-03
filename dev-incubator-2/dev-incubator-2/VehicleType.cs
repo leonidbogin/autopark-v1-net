@@ -8,32 +8,32 @@ namespace dev_incubator_2
 {
     public class VehicleType
     {
-        public string typeName { get; set; }
-        public double averagePrice { get; set; }   //BYN
-        public double costGarage { get; set; }     //BYN
-        public int count { get; set; }
+        public string TypeName { get; set; }
+        public double AveragePrice { get; set; }   //BYN
+        public double CostGarage { get; set; }     //BYN
+        public int Count { get; set; }
 
         public VehicleType() { }
 
         public VehicleType(string typeName, double averagePrice, double costGarage, int count)
         {
-            this.typeName = typeName;
-            this.averagePrice = averagePrice;
-            this.costGarage = costGarage;
-            this.count = count;
+            this.TypeName = typeName;
+            this.AveragePrice = averagePrice;
+            this.CostGarage = costGarage;
+            this.Count = count;
         }
 
-        public double GetTotal() => costGarage * count + averagePrice;
+        public double GetTotal() => CostGarage * Count + AveragePrice;
 
         public void Display()
         {
-            Console.WriteLine($"TypeName = {typeName};");
-            Console.WriteLine($"AveragePrice = {averagePrice};");
-            Console.WriteLine($"Garage = {costGarage};");
-            Console.WriteLine($"NumOfVehicles = {count};");
+            Console.WriteLine($"TypeName = {TypeName};");
+            Console.WriteLine($"AveragePrice = {AveragePrice};");
+            Console.WriteLine($"Garage = {CostGarage};");
+            Console.WriteLine($"NumOfVehicles = {Count};");
             Console.WriteLine($"Total = {GetTotal()};");
         }
 
-        public override string ToString() => $"{typeName},{averagePrice},{costGarage},{count},{GetTotal()}";
+        public override string ToString() => $"{TypeName},{AveragePrice},{CostGarage},{Count},{GetTotal()}";
     }
 }
