@@ -17,10 +17,10 @@ namespace dev_incubator_2
             VehicleCollection vehicleCollection = new VehicleCollection(args[0]);
             GarageStack garageStack = new GarageStack();
 
-            for (int i = 0; i < vehicleCollection.vehicles.Count; i++)
+            for (int i = 0; i < vehicleCollection.Vehicles.Count; i++)
             {
-                garageStack.Input(vehicleCollection.vehicles[i]);
-                Console.WriteLine($"Car {i}:\tdrove in garage [{vehicleCollection.vehicles[i].ToString()}]");
+                garageStack.Input(vehicleCollection.Vehicles[i]);
+                Console.WriteLine($"Car {i}:\tdrove in garage [{vehicleCollection.Vehicles[i].ToString()}]");
             }
             Console.WriteLine("< Garage is full >");
             for (int i = garageStack.Count()-1; i >= 0; i--)

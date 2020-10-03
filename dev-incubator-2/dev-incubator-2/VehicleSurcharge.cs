@@ -8,7 +8,7 @@ namespace dev_incubator_2
 {
     public class VehicleSurcharge : AbstractVehicle
     {
-        public decimal SurchargeKilometer { get; set; }
+        public decimal SurchargeKilometer { get; }
 
         public VehicleSurcharge() { }
 
