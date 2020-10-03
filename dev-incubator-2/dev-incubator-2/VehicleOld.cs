@@ -7,19 +7,18 @@ using System.Threading.Tasks;
 namespace dev_incubator_2
 {
     public class VehicleOld : AbstractVehicle
-    { 
-        readonly int age;
-        const int startOldAge = 5;
-        const double surchargeOld = 0.6d;
-
-        public YearsOperation endOperation { get; set; }
+    {
+        private static readonly int startOldAge = 5;
+        private static readonly double surchargeOld = 0.6d;
+        private readonly int age;
+        public YearsOperation EndOperation { get; set; }
         public VehicleOld() { }
 
         public VehicleOld(string name, double averageCostKilometer, double averageKilometers, YearsOperation endOperation, int age)
         {
-            vehicleCosts = new VehicleCosts(name, averageCostKilometer);
-            this.averageKilometers = averageKilometers;
-            this.endOperation = endOperation;
+            VehicleCosts = new VehicleCosts(name, averageCostKilometer);
+            this.AverageKilometers = averageKilometers;
+            this.EndOperation = endOperation;
             this.age = age;
         }       
 
@@ -27,11 +26,11 @@ namespace dev_incubator_2
         {
             double surcharge = 0;
             if (age > startOldAge) surcharge = surchargeOld;
-            return (vehicleCosts.averageCostKilometer + surcharge) * averageKilometers;
+            return (VehicleCosts.AverageCostKilometer + surcharge) * AverageKilometers;
         }
 
         public override string ToString() => 
-            $"{vehicleCosts.name};{vehicleCosts.averageCostKilometer};{averageKilometers};{endOperation};{age}"
+            $"{VehicleCosts.Name};{VehicleCosts.AverageCostKilometer};{AverageKilometers};{EndOperation};{age}"
             .Replace(',', '.').Replace(';', ','); //Fix replacing ',' in numbers with '.'
     }
 }

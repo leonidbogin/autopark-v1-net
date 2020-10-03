@@ -8,15 +8,15 @@ namespace dev_incubator_2
 {
     public class VehicleCosts
     {
-        public string name;
-        public double averageCostKilometer;     //BYN (cost - 1 km)
+        public string Name { get; set; }
+        public double AverageCostKilometer { get; set; }     //BYN (cost - 1 km)
 
         public VehicleCosts() { }
 
         public VehicleCosts(string name, double averageCostKilometer)
         {
-            this.name = name;
-            this.averageCostKilometer = averageCostKilometer;
+            this.Name = name;
+            this.AverageCostKilometer = averageCostKilometer;
         }
     }
 }
