@@ -10,7 +10,7 @@ namespace dev_incubator_2
     {
         public int Compare(AbstractVehicle x, AbstractVehicle y)
         {
-            int result = (x.vehicleCosts.name).CompareTo(y.vehicleCosts.name);
+            int result = (x.VehicleCosts.Name).CompareTo(y.VehicleCosts.Name);
             if (result != 0)
             {
                 return result;

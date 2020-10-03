@@ -10,19 +10,23 @@ namespace dev_incubator_2
 {
     public class VehicleCollection : VehicleSurcharge
     {
-        public List<AbstractVehicle> vehicles = new List<AbstractVehicle>();
+        public List<AbstractVehicle> Vehicles { get; }
 
-        public VehicleCollection() { }
+        public VehicleCollection() 
+        {
+            Vehicles = new List<AbstractVehicle>();
+        }
 
         public VehicleCollection(string inFile) 
-        { 
+        {
+            Vehicles = new List<AbstractVehicle>();
             try
             {
                 StreamReader sr = new StreamReader(inFile + ".csv");
                 string s;
                 while ((s = sr.ReadLine()) != null)
                 {
-                    vehicles.Add(CreateVehicle(s));
+                    Vehicles.Add(CreateVehicle(s));
                 }
             }
             catch (FileNotFoundException)
@@ -43,16 +47,16 @@ namespace dev_incubator_2
 
         public void Insert(int index, AbstractVehicle vehicle)
         {
-            if (index > vehicles.Count) 
-                index = vehicles.Count;
-            vehicles.Insert(index, vehicle);
+            if (index > Vehicles.Count) 
+                index = Vehicles.Count;
+            Vehicles.Insert(index, vehicle);
         }
 
         public int Delete(int index)
         {
-            if (0 <= index && index < vehicles.Count)
+            if (0 <= index && index < Vehicles.Count)
             {
-                vehicles.RemoveAt(index);
+                Vehicles.RemoveAt(index);
                 return index;
             }
             else return -1;
@@ -61,7 +65,7 @@ namespace dev_incubator_2
         public decimal TotalCosts()
         {
             decimal sumCosts = 0;
-            foreach (AbstractVehicle vehicle in vehicles)
+            foreach (AbstractVehicle vehicle in Vehicles)
                 sumCosts += vehicle.GetTotalCosts();
             return sumCosts;
         }
@@ -69,20 +73,20 @@ namespace dev_incubator_2
         public void Print()
         {
             Console.WriteLine(TabString("    Name","Cost ","Km/month ","Other cost ","Total "));
-            foreach (AbstractVehicle vehicle in vehicles)
+            foreach (AbstractVehicle vehicle in Vehicles)
             {
                 string addCost = string.Empty;
                 if (vehicle is VehicleSurcharge)
                 {
                     VehicleSurcharge vehicleSurcharge = (VehicleSurcharge)vehicle;
-                    if (vehicleSurcharge.surchargeKilometer != 0)
-                        addCost = vehicleSurcharge.surchargeKilometer.ToString();
+                    if (vehicleSurcharge.SurchargeKilometer != 0)
+                        addCost = vehicleSurcharge.SurchargeKilometer.ToString();
                 }
 
                 Console.WriteLine(TabString(
-                        vehicle.vehicleCosts.name, 
-                        vehicle.vehicleCosts.averageCostKilometer, 
-                        vehicle.averageKilometers, 
+                        vehicle.VehicleCosts.Name, 
+                        vehicle.VehicleCosts.AverageCostKilometer, 
+                        vehicle.AverageKilometers, 
                         addCost, 
                         vehicle.GetTotalCosts()));
             }
@@ -104,7 +108,7 @@ namespace dev_incubator_2
 
         public void Sort(IComparer<AbstractVehicle> comparator)
         {
-            vehicles.Sort(comparator);
+            Vehicles.Sort(comparator);
         }   
     }
 }

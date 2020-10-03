@@ -19,9 +19,9 @@ namespace dev_incubator_2
             vehicleCollection.Print();
 
             VehicleCollection vehicleCollectionSecond = new VehicleCollection(args[1]);
-            vehicleCollection.Insert(1, vehicleCollectionSecond.vehicles.Last());
-            vehicleCollection.Insert(150, vehicleCollectionSecond.vehicles[1]);
-            vehicleCollection.Insert(3, vehicleCollectionSecond.vehicles[3]);
+            vehicleCollection.Insert(1, vehicleCollectionSecond.Vehicles.Last());
+            vehicleCollection.Insert(150, vehicleCollectionSecond.Vehicles[1]);
+            vehicleCollection.Insert(3, vehicleCollectionSecond.Vehicles[3]);
             vehicleCollection.Delete(2);
             vehicleCollection.Delete(8);
             vehicleCollection.Delete(-1);
@@ -44,11 +44,11 @@ namespace dev_incubator_2
 
         private static void Search(VehicleCollection collection1, VehicleCollection collection2, int secondIndex)
         {
-            int firstIndex = collection1.vehicles.BinarySearch(collection2.vehicles[secondIndex]);
+            int firstIndex = collection1.Vehicles.BinarySearch(collection2.Vehicles[secondIndex]);
             if (firstIndex > -1) 
-                Console.WriteLine($"Item {collection2.vehicles[secondIndex].ToString()} found on position {firstIndex}");
+                Console.WriteLine($"Item {collection2.Vehicles[secondIndex].ToString()} found on position {firstIndex}");
             else 
-                Console.WriteLine($"Item {collection2.vehicles[secondIndex].ToString()} not found");
+                Console.WriteLine($"Item {collection2.Vehicles[secondIndex].ToString()} not found");
         }
     }
 }
