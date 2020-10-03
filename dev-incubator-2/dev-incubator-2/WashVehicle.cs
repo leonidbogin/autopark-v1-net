@@ -12,7 +12,7 @@ namespace dev_incubator_2
         private Queue<AbstractVehicle> queueWash;
         private Thread threadWash;
         const int timeMinWash = 600;
-        const int timeMaxWash = 3000;
+        const int timeMaxWash = 2000;
         private int countWash = 0;
         private int sizePark = 0;
 

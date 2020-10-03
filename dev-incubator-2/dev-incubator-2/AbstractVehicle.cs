@@ -8,20 +8,20 @@ namespace dev_incubator_2
 {
     public abstract class AbstractVehicle : IComparable<AbstractVehicle>
     {
-        public VehicleCosts vehicleCosts { get; set; }
-        public decimal averageKilometers { get; set; }         
+        public VehicleCosts VehicleCosts { get; set; }
+        public decimal AverageKilometers { get; set; }         
 
         public AbstractVehicle() { }
 
         public AbstractVehicle(VehicleCosts vehicleCosts, decimal averageKilometers) 
         {
-            this.vehicleCosts = vehicleCosts;
-            this.averageKilometers = averageKilometers;
+            this.VehicleCosts = vehicleCosts;
+            this.AverageKilometers = averageKilometers;
         }
 
         public abstract decimal GetTotalCosts();
 
-        public override string ToString() => $"{vehicleCosts.name};{vehicleCosts.averageCostKilometer};{averageKilometers}"
+        public override string ToString() => $"{VehicleCosts.Name};{VehicleCosts.AverageCostKilometer};{AverageKilometers}"
                                 .Replace(',', '.').Replace(';', ','); //Fix replacing ',' in numbers with '.'
 
         public int CompareTo(AbstractVehicle second) 
