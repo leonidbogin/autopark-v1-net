@@ -8,17 +8,16 @@ namespace dev_incubator_2
 {
     public class VehicleSurcharge : Vehicle
     {
+        private static readonly double surcharge = 0.5;
         public VehicleSurcharge() { }
 
         public VehicleSurcharge(string name, double averageCostKilometer, double averageKilometers, YearsOperation endOperation)
         {
-            this.name = name;
-            this.averageCostKilometer = averageCostKilometer;
-            this.averageKilometers = averageKilometers;
-            this.endOperation = endOperation;
+            this.Name = name;
+            this.AverageCostKilometer = averageCostKilometer;
+            this.AverageKilometers = averageKilometers;
+            this.EndOperation = endOperation;
         }
-
-        const double surcharge = 0.5;
-        public override double GetTotalCosts() => (averageCostKilometer + surcharge) * averageKilometers;
+        public override double GetTotalCosts() => (AverageCostKilometer + surcharge) * AverageKilometers;
     }
 }
