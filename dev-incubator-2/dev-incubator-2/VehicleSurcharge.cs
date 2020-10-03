@@ -8,17 +8,17 @@ namespace dev_incubator_2
 {
     public class VehicleSurcharge : AbstractVehicle
     {
-        public decimal surchargeKilometer { get; set; }
+        public decimal SurchargeKilometer { get; set; }
 
         public VehicleSurcharge() { }
 
         public VehicleSurcharge(string name, decimal averageCostKilometer, decimal averageKilometers, decimal surchargeKilometer)
         {
-            this.vehicleCosts = new VehicleCosts(name, averageCostKilometer); ;
-            this.averageKilometers = averageKilometers;
-            this.surchargeKilometer = surchargeKilometer;
+            this.VehicleCosts = new VehicleCosts(name, averageCostKilometer); ;
+            this.AverageKilometers = averageKilometers;
+            this.SurchargeKilometer = surchargeKilometer;
         }
 
-        public override decimal GetTotalCosts() => (vehicleCosts.averageCostKilometer + surchargeKilometer) * averageKilometers;
+        public override decimal GetTotalCosts() => (VehicleCosts.AverageCostKilometer + SurchargeKilometer) * AverageKilometers;
     }
 }

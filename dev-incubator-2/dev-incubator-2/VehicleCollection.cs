@@ -11,12 +11,16 @@ namespace dev_incubator_2
 {
     public class VehicleCollection : VehicleSurcharge
     {
-        public List<AbstractVehicle> vehicles = new List<AbstractVehicle>();
+        public List<AbstractVehicle> vehicles;
 
-        public VehicleCollection() { }
+        public VehicleCollection() 
+        {
+            vehicles = new List<AbstractVehicle>();
+        }
 
         public VehicleCollection(string inFile)
         {
+            vehicles = new List<AbstractVehicle>();
             AddFromFile(inFile);
         }
 
@@ -85,14 +89,14 @@ namespace dev_incubator_2
                 if (vehicle is VehicleSurcharge)
                 {
                     VehicleSurcharge vehicleSurcharge = (VehicleSurcharge)vehicle;
-                    if (vehicleSurcharge.surchargeKilometer != 0)
-                        addCost = vehicleSurcharge.surchargeKilometer.ToString();
+                    if (vehicleSurcharge.SurchargeKilometer != 0)
+                        addCost = vehicleSurcharge.SurchargeKilometer.ToString();
                 }
 
                 Console.WriteLine(TabString(
-                        vehicle.vehicleCosts.name,
-                        vehicle.vehicleCosts.averageCostKilometer,
-                        vehicle.averageKilometers,
+                        vehicle.VehicleCosts.Name,
+                        vehicle.VehicleCosts.AverageCostKilometer,
+                        vehicle.AverageKilometers,
                         addCost,
                         vehicle.GetTotalCosts()));
             }
